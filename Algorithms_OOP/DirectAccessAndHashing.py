@@ -11,9 +11,17 @@ Sorted Array        |    nlog n |    log n  |       n       |       1      |    
 Direct Access Array |    u      |    1      |       1       |       u      |      u      |    
 Hash Table          |    n(e)   |    1(e)   |       1(a)(e) |       n      |      n      |    
 --------------------|-----------|-----------|---------------|--------------|-------------|
+
+Legend:
+    1(a): Amortized time
+    1(e): Expected time
+
 """
 
-class DirectAccesArray:
+from Algorithms_OOP.Interfaces_n_DStructures import LinkedListSeq, SetFromSequence
+
+
+class DirectAccessArray:
     def __init__(self, u) -> None: self.Arr = [None] * u
     def find(self, value): return self.Arr[value]
     def insert(self, item): self.Arr[item.key] = item
@@ -23,4 +31,24 @@ class DirectAccesArray:
         for i in range(value, len(self.Arr)):
             if self.Arr[i] is not None:
                 return self.Arr[i]
+
+    def find_max(self):
+        for i in range(len(self.Arr) - 1, -1, -1):
+            if self.Arr[i] is not None:
+                return self.Arr[i]
+    
+    def find_max(self):
+        for i in range(len(self.Arr) - 1, -1, -1):
+            deleted = self.Arr[i]
+            if deleted is not None:
+                self.Arr[i] = None
+                return deleted
+
         
+class HashTableSet:
+    def __init__(self, ratio = 200) -> None:
+        self.chain_set = SetFromSequence(LinkedListSeq)
+        self.Arr = []
+        self.size = 0
+        self.ratio = ratio
+        self.p = 2**31 - 1
