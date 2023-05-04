@@ -2,6 +2,9 @@
 # size of the data provided.
 # To implement the insertion sort, write a functions that takes a parameter - which would 
 # the candidate list.
+# ------------------------------------------------------------------------------- 
+# LOOP INVARIANT: The loop invariant is the state of the loop at any given time.
+# ------------------------------------------------------------------------------- 
 # Assertain the the implementation satisfies the three rules of algorithms
 # Rule 1 - Initialization:>> The state (Loop Invariant) that triggers initialization
 #                           At the very beginning j == 0 is true however single value is 
@@ -18,10 +21,16 @@
 #                           and the item at index j is less than or greater than the current values
 #                           (depending on the sorting order), is not fulfilled.
 
+"""
+    > A python class on Insertion Sort Algorithm - Object representing the 
+        insertion sort algorithm.
+"""
 class Insertion:
+    # Initialisation of the class
     def __init__(self, my_list):
         self.my_list  = my_list
 
+    # Create the string representation of the class
     def __str__(self):
         return f"Insertion Sort Algorithm"
 
@@ -32,6 +41,7 @@ class Insertion:
         except:
             print(f"Couldn't write to {order}.txt")
 
+    # Create and ascending order of the algorithm
     def ascending(self):
         # Iterate through every single element of the list checking 
         # if it's greater than its preceeding item.
@@ -48,7 +58,6 @@ class Insertion:
                 # be greater than 0 but not necessarily as likely that the item
                 # at index j be grater than the current value) then we'll place 
                 # the current value at the most recent j position
-                
                 self.my_list[j + 1] = self.my_list[j]
                 j -= 1
             

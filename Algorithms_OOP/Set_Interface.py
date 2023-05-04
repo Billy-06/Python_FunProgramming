@@ -3,7 +3,7 @@
 # in the RAM and such details.
 
 
-from OCW_Lectures.Interfaces_n_DStructures import Array_Seq
+from .Interfaces_n_DStructures import Array_Seq
 
 class SortedArraySet:
     def __init__(self) -> None: self.Arr = Array_Seq()
